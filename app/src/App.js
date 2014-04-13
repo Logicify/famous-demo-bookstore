@@ -107,7 +107,7 @@ define(function(require, exports, module) {
         activityHolder.createCachedActivity(DummyBookDetailsActivity);
         activityHolder.createCachedActivity(DummyFavoritesActivity);
         //
-        this.header.on('back', function(){
+        this.header.on('back', function() {
             if (activityHolder.currentActivity) {
                 activityHolder.currentActivity.onBackAction(window.App,
                     window.App.activityHolder.ANIMATION.slideFromLeft);

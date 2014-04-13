@@ -4,9 +4,9 @@
 define(function(require, exports, module) {
     var View = require('famous/core/View');
 
-    function Activity(options){
+    function Activity(options) {
         View.apply(this, arguments);
-    };
+    }
 
     Activity.prototype = Object.create(View.prototype);
     Activity.prototype.constructor = Activity;

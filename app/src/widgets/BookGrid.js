@@ -17,7 +17,7 @@ define(function(require, exports, module) {
             dimensions: [3,3]
         });
         if (!this.options.itemSize) {
-            this.options.itemSize = [this.options.size[0] / layout.options.dimensions[0], this.options.size[1] / layout.options.dimensions[1]]
+            this.options.itemSize = [this.options.size[0] / layout.options.dimensions[0], this.options.size[1] / layout.options.dimensions[1]];
         }
         //layout.addClass('book-grid');
         layout.sequenceFrom(this.books);
@@ -65,7 +65,7 @@ define(function(require, exports, module) {
             //origin: [0, 1]
         })).add(container._bookInfoSurface);
 
-        container.on('click', function(target, data){
+        container.on('click', function(target, data) {
             this._eventOutput.emit('book-item-clicked', target, data);
         }.bind(this, container, container.data));
         return container;

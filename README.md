@@ -2,7 +2,9 @@
 
 This project is a kind of my attempt to write simple typical mobile application in javascript using new Famo.Us framework. Feel you free to use it as a demo application while learing/investigating famo.us.
 
-Will be very appreciated to get feedback, bugreports or suggestions how to improve the code.  
+Will be very appreciated to get feedback, bug reports or suggestions how to improve the code.
+
+Here is a my blog where I plan to describe development process: [http://logicify.com/blog/famous-first-look/](http://logicify.com/blog/famous-first-look/)
 
 # Demo
 

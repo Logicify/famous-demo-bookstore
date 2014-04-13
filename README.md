@@ -6,7 +6,7 @@ Will be very appreciated to get feedback, bugreports or suggestions how to impro
 
 # Demo
 
-Checkout online demo here: http://corvis.github.io/famous-demo-bookstore/
+Checkout online demo here: http://logicify.github.io/famous-demo-bookstore/
 
 ##Dependencies
 

@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Famous-demo-bookstore by corvis</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>Famous-demo-bookstore</h1>
+        <p>This is my try to write simple typical application using new Famo.Us framework</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/corvis/famous-demo-bookstore" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/corvis/famous-demo-bookstore/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/corvis/famous-demo-bookstore/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1>
+<a name="demo-bookstore-application-in-famous" class="anchor" href="#demo-bookstore-application-in-famous"><span class="octicon octicon-link"></span></a>Demo bookstore application in Famo.Us</h1>
+
+<p>This project is a kind of attempt to write simple typical mobile application in javascript using new Famo.Us framework. Feel you free to use it as a demo application while learing/investigating famo.us. </p>
+
+<p>Will be very appreciated to get feedback, bugreports or suggestions how to improve the code.  </p>
+
+<h2>
+<a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h2>
+
+<p>First make sure you have node.js, grunt-cli, and bower installed.</p>
+
+<pre><code>brew install node
+npm install -g grunt-cli bower
+</code></pre>
+
+<p>If you are installing node for the fist time you will most likely need to add npm to your path</p>
+
+<pre><code>$ export PATH="/usr/local/share/npm/bin:$PATH"
+</code></pre>
+
+<p>You will probably want to add that to you .bash_profile.  I'll assume if you are using any other shell that you know what you are doing already :P</p>
+
+<h2>
+<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h2>
+
+<pre><code>npm install &amp;&amp; bower install
+</code></pre>
+
+<p>That's it!!!</p>
+
+<h2>
+<a name="running-the-development-server" class="anchor" href="#running-the-development-server"><span class="octicon octicon-link"></span></a>Running the Development Server</h2>
+
+<p>Simply run <code>grunt serve</code> and you will start a local development server and open Chrome.  Watch tasks will be running, and your browser will be automatically refreshed whenever a file in the repo changes.</p>
+
+<p>You can run serve with <code>--port=9001</code> to manually pick the port that the server will run on</p>
+
+<h2>
+<a name="production" class="anchor" href="#production"><span class="octicon octicon-link"></span></a>Production</h2>
+
+<p>If you would like to compile your project for distribution simply run the command <code>grunt</code> to build <code>dist/</code> which will be a deployment ready version of your app.  Preprocessing will be applied to html, all js will be concatenated and minified.  All js / css assets will also have their name prepended with a hash for cache busting.</p>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/corvis">corvis</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>

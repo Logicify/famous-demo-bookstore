@@ -1,8 +1,12 @@
-# Demo bookstore application in Famo.Us                                                                                                               
+# Demo bookstore application in Famo.Us
 
-This project is a kind of attempt to write simple typical mobile application in javascript using new Famo.Us framework. Feel you free to use it as a demo application while learing/investigating famo.us. 
+This project is a kind of my attempt to write simple typical mobile application in javascript using new Famo.Us framework. Feel you free to use it as a demo application while learing/investigating famo.us.
 
 Will be very appreciated to get feedback, bugreports or suggestions how to improve the code.  
+
+# Demo
+
+Checkout online demo here: http://corvis.github.io/famous-demo-bookstore/
 
 ##Dependencies
 
@@ -38,3 +42,7 @@ You can run serve with ```--port=9001``` to manually pick the port that the serv
 ##Production
 
 If you would like to compile your project for distribution simply run the command ```grunt``` to build ```dist/``` which will be a deployment ready version of your app.  Preprocessing will be applied to html, all js will be concatenated and minified.  All js / css assets will also have their name prepended with a hash for cache busting.
+
+Credits
+-------
+Dmitry Berezovsky, Logicify (<http://logicify.com/>)

@@ -1,0 +1,21 @@
+.book-item {
+  padding: 10px;
+}
+.book-item .book-info-block {
+  padding-top: 15px;
+}
+.book-item .book-info-block .book-name {
+  padding-top: 3px;
+  text-align: center;
+  font-weight: bold;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.book-item .book-info-block .book-price {
+  padding-top: 8px;
+  text-align: right;
+}
+.book-item:hover {
+  background: lightgray;
+}

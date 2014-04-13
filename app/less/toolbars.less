@@ -1,0 +1,38 @@
+.toolbar-gradient() {
+  background-image: -moz-linear-gradient(top, #535357, #3c3c3f);
+  background-image: -ms-linear-gradient(top, #535357, #3c3c3f);
+  background-image: -webkit-linear-gradient(top, #535357, #3c3c3f);
+  background-image: linear-gradient(top, #535357, #3c3c3f);
+
+  -webkit-box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.2), 0 1px 0px #292929;
+  -moz-box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.2), 0 1px 0px #292929;
+  box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.2), 0 1px 0px #292929;
+}
+
+.toolbar-active-item() {
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+  background-image: -moz-linear-gradient(top, #565658, #313132);
+  background-image: -ms-linear-gradient(top, #565658, #313132);
+  background-image: -webkit-linear-gradient(top, #565658, #313132);
+  background-image: linear-gradient(top, #565658, #313132);
+
+  -webkit-box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.2), 0 1px 0px #292929;
+  -moz-box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.2), 0 1px 0px #292929;
+  box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.2), 0 1px 0px #292929;
+}
+
+.toolbar-item {
+  text-align: center;
+  color: #ffffff;
+  padding: 10px;
+
+  &.active {
+    .toolbar-active-item();
+  }
+
+  .toolbar-icon {
+    line-height: 20px;
+    min-height: 22px;
+    font-size: 20px;
+  }
+}

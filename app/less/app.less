@@ -1,0 +1,26 @@
+@import 'toolbars';
+@import 'bookgrid';
+
+.app-header {
+  .toolbar-gradient();
+  color: white;
+  line-height: 50px;
+  text-align: center;
+  font-weight: bold;
+
+  &.back-button:hover, &.more-button:hover {
+    .toolbar-active-item();
+  }
+}
+
+.app-footer {
+  .toolbar-gradient();
+}
+
+.grey-bg {
+  //background: #808080;
+}
+
+.red-bg {
+  //background: #008000;
+}

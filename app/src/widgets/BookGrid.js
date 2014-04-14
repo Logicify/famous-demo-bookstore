@@ -2,32 +2,34 @@ define(function(require, exports, module) {
     var View = require('famous/core/View');
     var Modifier = require('famous/core/Modifier');
     var Surface = require('famous/core/Surface');
-    var GridLayout = require('famous/views/GridLayout');
+    var ScrollView = require('famous/views/Scrollview');
     var ContainerSurface = require('famous/surfaces/ContainerSurface');
+    var SequentialLayout = require('famous/views/SequentialLayout');
     var ImageSurface = require('famous/surfaces/ImageSurface');
     var Transform          = require('famous/core/Transform');
+    var Utility = require('famous/utilities/Utility');
     var _ = require('underscore');
 
     function BookGrid(options, datasource) {
         View.apply(this, arguments);
-
         this.books = [];
-        var layout = new GridLayout({
-            //cellSize: this.options.itemSize,
-            dimensions: [3,3]
-        });
         if (!this.options.itemSize) {
-            this.options.itemSize = [this.options.size[0] / layout.options.dimensions[0], this.options.size[1] / layout.options.dimensions[1]];
+            this.options.itemSize = [this.options.size[0] / this.options.itemsPerRow, this.options.size[1] / this.options.itemsPerRow];
         }
         this._imageHeight = (this.options.itemSize[1] * 0.4);
-        //layout.addClass('book-grid');
-        layout.sequenceFrom(this.books);
 
+        this.gridRows = [];
+        this.scrollView = new ScrollView({
+            direction: Utility.Direction.Y,
+            friction: 0,
+            paginated: true,
+            drag: 0.001
+        });
+        this.scrollView.sequenceFrom(this.gridRows);
         for (var i = 0; i < datasource.length; i++){
-            var book = this.createBookSurface(datasource[i]);
-            this.books.push(book);
+            this.addBookToGrid(datasource[i]);
         }
-        this.add(layout);
+        this.add(this.scrollView);
     }
 
     BookGrid.prototype = Object.create(View.prototype);
@@ -35,7 +37,8 @@ define(function(require, exports, module) {
 
     BookGrid.DEFAULT_OPTIONS = {
         itemSize: undefined,
-        pictureAspectRatio: 0.769
+        pictureAspectRatio: 0.769,
+        itemsPerRow: 3
     };
 
     BookGrid.prototype.createBookSurface = function(data) {
@@ -59,6 +62,28 @@ define(function(require, exports, module) {
         '<div class="book-name"><%= name %></div>' +
         '</div>'
     );
+
+    function _createSequensialLayout() {
+        var sequentialLayout = new SequentialLayout({direction: Utility.Direction.X});
+        sequentialLayout.items = [];
+        sequentialLayout.sequenceFrom(sequentialLayout.items);
+        return sequentialLayout;
+    }
+
+    BookGrid.prototype.addBookToGrid = function(data) {
+        var book = this.createBookSurface(data);
+        this.books.push(book);
+        if (this.gridRows.length == 0) {
+            this.gridRows[this.gridRows.length] = _createSequensialLayout();
+        }
+        var lastRow = this.gridRows[this.gridRows.length - 1];
+        if (lastRow.items.length >= this.options.itemsPerRow) {
+            lastRow = _createSequensialLayout();
+            this.gridRows[this.gridRows.length] = lastRow;
+        }
+        book.pipe(this.scrollView);
+        lastRow.items.push(book);
+    };
 
     module.exports = BookGrid;
 });

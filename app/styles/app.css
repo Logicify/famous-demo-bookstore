@@ -37,9 +37,6 @@
   padding-top: 8px;
   text-align: right;
 }
-.book-item:hover {
-  background: lightgray;
-}
 .activity-DummyBookDetailsActivity .book-title {
   padding-top: 5px;
   font-size: 1.4em;

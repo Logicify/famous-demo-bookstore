@@ -17,23 +17,13 @@ define(function(require, exports, module) {
             outTransition: this.options.outTransition
         });
         this._activityCache = {};
-        var primary = new Surface({
-            size: [undefined, undefined],
-            content: 'Primary',
-            classes: ['red-bg'],
-            origin: [0.5, 0.5],
-            properties: {
-                lineHeight: window.innerHeight + 'px',
-                textAlign: 'center'
-            }
-        });
         this.currentActivity = undefined;
         this.add(this.renderController);
     }
 
     ActivityHolder.DEFAULT_OPTIONS = {
-        inTransition: { duration: 300, curve: 'easeInOut' },
-        outTransition: { duration: 300, curve: 'easeInOut' }
+        inTransition: { duration: 300, curve: 'easeIn' },
+        outTransition: { duration: 300, curve: 'easeIn' }
     };
 
     ActivityHolder.prototype = Object.create(View.prototype);

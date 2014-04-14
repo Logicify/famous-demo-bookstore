@@ -1,8 +1,9 @@
 .book-item {
-  padding: 10px;
+  padding: 5px;
 }
 .book-item .book-info-block {
   padding-top: 15px;
+  text-align: center;
 }
 .book-item .book-info-block .book-name {
   padding-top: 3px;

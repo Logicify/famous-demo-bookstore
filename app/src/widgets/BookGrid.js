@@ -38,32 +38,20 @@ define(function(require, exports, module) {
     };
 
     BookGrid.prototype.createBookSurface = function(data) {
-        var container = new ContainerSurface({
-            size: this.options.itemSize,
-            classes: ['book-item']
-        });
-        container.data = data;
-        container._bookInfoSurface = new Surface({
-            content: this._bookRenderer(data),
-            classes: ['book-info-block']
-        });
+
         var imageHeight = (this.options.itemSize[1] * 0.4);
         var imageWidth = imageHeight / this.options.pictureAspectRatio;
-        container._imageSurface = new ImageSurface({
-            size: [imageHeight, imageWidth],
-            origin: [0.5, 0]
+
+        window.console.log('height: ' + imageHeight);
+
+        data.imageUrl = (!data.imageUrl ? 'content/images/books/1.jpg' : data.imageUrl);
+
+        var container = new Surface({
+            size: this.options.itemSize,
+            classes: ['book-item'],
+            content: this._bookRenderer(_.extend({imageHeight: imageHeight}, data))
         });
-        container._imageSurface.setContent((!data.imageUrl ? 'content/images/books/1.jpg' : data.imageUrl));
-
-        container.add(new Modifier({
-            origin: [0.5, 0]
-
-        })).add(container._imageSurface);
-
-        container.add(new Modifier({
-            transform: Transform.translate(0,imageHeight)
-            //origin: [0, 1]
-        })).add(container._bookInfoSurface);
+        container.data = data;
 
         container.on('click', function(target, data) {
             this._eventOutput.emit('book-item-clicked', target, data);
@@ -72,8 +60,11 @@ define(function(require, exports, module) {
     };
 
     BookGrid.prototype._bookRenderer = _.template(
+        '<div class="book-info-block">' +
+        '<img class="book-image" height="<%= imageHeight %>" src="<%= imageUrl %>">' +
         '<div class="book-price">$<%= price %></div>' +
-        '<div class="book-name"><%= name %></div>'
+        '<div class="book-name"><%= name %></div>' +
+        '</div>'
     );
 
     module.exports = BookGrid;

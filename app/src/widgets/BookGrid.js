@@ -77,7 +77,7 @@ define(function(require, exports, module) {
     BookGrid.prototype.addBookToGrid = function(data) {
         var book = this.createBookSurface(data);
         this.books.push(book);
-        if (this.gridRows.length == 0) {
+        if (this.gridRows.length === 0) {
             this.gridRows[this.gridRows.length] = _createSequensialLayout();
         }
         var lastRow = this.gridRows[this.gridRows.length - 1];

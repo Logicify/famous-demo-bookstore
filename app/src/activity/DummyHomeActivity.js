@@ -40,9 +40,9 @@ define(function(require, exports, module) {
                 gridOptions = { rowsOnScreen: 5, itemsPerRow: 4 };
                 break;
         }
-        if (app.deviceInfo.orientation == app.Orientation.LANDSCAPE) {
-            if (app.deviceInfo.sizeClassification == app.SizeClassification.SMALL
-                || app.deviceInfo.sizeClassification == app.SizeClassification.NORMAL) {
+        if (app.deviceInfo.orientation === app.Orientation.LANDSCAPE) {
+            if (app.deviceInfo.sizeClassification === app.SizeClassification.SMALL
+                || app.deviceInfo.sizeClassification === app.SizeClassification.NORMAL) {
                 gridOptions.itemsPerRow = 3;
                 gridOptions.rowsOnScreen = 1;
             } else {

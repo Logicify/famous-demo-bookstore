@@ -133,7 +133,7 @@ define(function(require, exports, module) {
         this.deviceInfo = {
             orientation: window.innerWidth < window.innerHeight ? this.Orientation.PORTRAIT : this.Orientation. LANDSCAPE,
             sizeClassification: this.classifyScreenSize(window.innerWidth, window.innerHeight)
-        }
+        };
     };
 
     module.exports = App;

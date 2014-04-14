@@ -11,7 +11,8 @@ require.config({
         almond: '../lib/almond/almond',
         'famous-polyfills': '../lib/famous-polyfills/index',
         bootstrap: '../lib/bootstrap/dist/js/bootstrap',
-        underscore: '../lib/underscore/underscore'
+        underscore: '../lib/underscore/underscore',
+        fastclick: '../lib/fastclick/lib/fastclick'
     }
 });
 require(['underscore', 'main']);

@@ -29,7 +29,8 @@
     "underscore": "~1.6.0",
     "almond": "~0.2.9",
     "famous-polyfills": "https://github.com/Famous/polyfills.git",
-    "famous": "https://github.com/Famous/famous.git#v0_1_1"
+    "famous": "https://github.com/Famous/famous.git#v0_1_1",
+    "fastclick": "~v1.0.1"
   },
   "scripts": {
     "postinstall": "grunt bower"

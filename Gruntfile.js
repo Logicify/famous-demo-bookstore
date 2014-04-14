@@ -207,7 +207,7 @@ module.exports = function(grunt) {
         requirejs: {
             compile: {
                 options: {
-                    optimize: 'uglify2',
+                    optimize: 'none',
                     uglify2: {
                         mangler: {
                             toplevel: true

@@ -4,7 +4,7 @@ define(function(require, exports, module) {
     var Surface = require('famous/core/Surface');
     var ContainerSurface = require('famous/surfaces/ContainerSurface');
     var OptionsManager = require('famous/core/OptionsManager');
-    var NavigationBar = require('famous/widgets/NavigationBar');
+    var NavigationBar = require('widgets/common/NavigationBar');
     var ActivityHolder = require('activity/common/ActivityHolder');
     var BottomToolbar = require('widgets/common/BottomToolbar');
     var BottomToolbarItem = require('widgets/common/BottomToolbarItem');
@@ -36,8 +36,7 @@ define(function(require, exports, module) {
         this.header = new NavigationBar({
             size: [window.innerWidth, mainLayout.options.headerSize],
             classes: ['app-header'],
-            backContent: 'Back',
-            content: 'Book store Famo.Us Demo'
+            backContent: 'Back'
         });
         this.header._optionsManager.set('backClasses', ['back-button']);
         this.header._optionsManager.set('moreClasses', ['more-button']);

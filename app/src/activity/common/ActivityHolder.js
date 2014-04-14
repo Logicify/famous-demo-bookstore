@@ -80,8 +80,10 @@ define(function(require, exports, module) {
         this.renderController.inOpacityFrom(transitionMap.opacityIn);
         this.renderController.outOpacityFrom(transitionMap.opacityIn);
         activity.beforeOpening(window.App, parameters);
-        activity.prepareNavigationBar(window.App, window.App.header);
         activity.prepareBottomToolbar(window.App, window.App.bottomToolbar);
+        activity.prepareNavigationBar(window.App, window.App.header);
+        window.App.header.setBackButtonEnabled(activity.onBackAction !== false);
+        window.App.header.setMoreButtonEnabled(activity.onMoreAction !== false);
         this.currentActivity = activity;
         this.renderController.show(activity);
     };

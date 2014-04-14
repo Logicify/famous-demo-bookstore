@@ -27,9 +27,19 @@ define(function(require, exports, module) {
 
     };
 
-    Activity.prototype.onBackAction = function(app, defaultBackAnimation) {
+    /**
+     * Should be callback which takes 2 parameters: app, defaultBackAnimation
+     * @param app
+     * @param defaultBackAnimation
+     */
+    Activity.prototype.onBackAction = false;
 
-    };
+    /**
+     * Should be callback
+     * @param app
+     * @param defaultBackAnimation
+     */
+    Activity.prototype.onMoreAction = false;
 
     module.exports = Activity;
 });

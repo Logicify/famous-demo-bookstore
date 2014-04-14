@@ -36,5 +36,9 @@ define(function(require, exports, module) {
 
     };
 
+    DummyHomeActivity.prototype.prepareNavigationBar = function(app, navigationBar) {
+        navigationBar.setContent('Book store Famo.Us Demo');
+    };
+
     module.exports = DummyHomeActivity;
 });

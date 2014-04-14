@@ -19,6 +19,7 @@ define(function(require, exports, module) {
         if (!this.options.itemSize) {
             this.options.itemSize = [this.options.size[0] / layout.options.dimensions[0], this.options.size[1] / layout.options.dimensions[1]];
         }
+        this._imageHeight = (this.options.itemSize[1] * 0.4);
         //layout.addClass('book-grid');
         layout.sequenceFrom(this.books);
 
@@ -38,21 +39,13 @@ define(function(require, exports, module) {
     };
 
     BookGrid.prototype.createBookSurface = function(data) {
-
-        var imageHeight = (this.options.itemSize[1] * 0.4);
-        var imageWidth = imageHeight / this.options.pictureAspectRatio;
-
-        window.console.log('height: ' + imageHeight);
-
         data.imageUrl = (!data.imageUrl ? 'content/images/books/1.jpg' : data.imageUrl);
-
         var container = new Surface({
             size: this.options.itemSize,
             classes: ['book-item'],
-            content: this._bookRenderer(_.extend({imageHeight: imageHeight}, data))
+            content: this._bookRenderer(_.extend({imageHeight: this._imageHeight}, data))
         });
         container.data = data;
-
         container.on('click', function(target, data) {
             this._eventOutput.emit('book-item-clicked', target, data);
         }.bind(this, container, container.data));

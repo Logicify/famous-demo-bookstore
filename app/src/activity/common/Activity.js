@@ -11,7 +11,6 @@ define(function(require, exports, module) {
     Activity.prototype = Object.create(View.prototype);
     Activity.prototype.constructor = Activity;
 
-
     /**
      * Will be invoked before activity holder starts loading this activity.
      * @param app

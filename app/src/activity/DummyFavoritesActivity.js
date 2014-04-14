@@ -32,7 +32,7 @@ define(function(require, exports, module) {
     };
 
     DummyFavoritesActivity.prototype.prepareNavigationBar = function(app, navigationBar) {
-        navigationBar.setContent("Favorites");
+        navigationBar.setContent('Favorites');
     };
 
     DummyFavoritesActivity.prototype.onBackAction = function(app, defaultBackAnimation) {

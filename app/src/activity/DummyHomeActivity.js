@@ -3,6 +3,7 @@ define(function(require, exports, module) {
     var Activity = require('activity/common/Activity');
     var Surface = require('famous/core/Surface');
     var BookGrid = require('widgets/BookGrid');
+    var _ = require('underscore');
 
     var DUMMY_BOOK_DATA = [
         { name: 'Death on Demand', price: '9.20', imageUrl: 'content/images/books/1.jpg' },
@@ -27,9 +28,32 @@ define(function(require, exports, module) {
 
     function DummyHomeActivity(options, app) {
         Activity.apply(this, arguments);
-        var bookGrid = new BookGrid({
+        var gridOptions = { rowsOnScreen: 4, itemsPerRow: 3 };
+        switch (app.deviceInfo.sizeClassification) {
+            case app.SizeClassification.SMALL:
+                gridOptions = { rowsOnScreen: 2, itemsPerRow: 2 };
+                break;
+            case app.SizeClassification.LARGE:
+                gridOptions = { rowsOnScreen: 5, itemsPerRow: 4 };
+                break;
+            case app.SizeClassification.XLARGE:
+                gridOptions = { rowsOnScreen: 5, itemsPerRow: 4 };
+                break;
+        }
+        if (app.deviceInfo.orientation == app.Orientation.LANDSCAPE) {
+            if (app.deviceInfo.sizeClassification == app.SizeClassification.SMALL
+                || app.deviceInfo.sizeClassification == app.SizeClassification.NORMAL) {
+                gridOptions.itemsPerRow = 3;
+                gridOptions.rowsOnScreen = 1;
+            } else {
+                var t = gridOptions.rowsOnScreen;
+                gridOptions.rowsOnScreen = gridOptions.itemsPerRow;
+                gridOptions.itemsPerRow = t;
+            }
+        }
+        var bookGrid = new BookGrid(_.extend({
             size: this.options.size
-        }, DUMMY_BOOK_DATA);
+        }, gridOptions), DUMMY_BOOK_DATA);
         bookGrid.on('book-item-clicked', function(event) {
             window.App.activityHolder.showCachedActivity('DummyBookDetailsActivity', undefined, event.data);
             window.App.bottomToolbar.setActiveItem(undefined);

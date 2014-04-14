@@ -14,7 +14,10 @@ define(function(require, exports, module) {
         View.apply(this, arguments);
         this.books = [];
         if (!this.options.itemSize) {
-            this.options.itemSize = [this.options.size[0] / this.options.itemsPerRow, this.options.size[1] / this.options.itemsPerRow];
+            this.options.itemSize = [
+                this.options.size[0] / this.options.itemsPerRow,
+                this.options.size[1] / this.options.rowsOnScreen
+            ];
         }
         this._imageHeight = (this.options.itemSize[1] * 0.4);
 
@@ -38,7 +41,8 @@ define(function(require, exports, module) {
     BookGrid.DEFAULT_OPTIONS = {
         itemSize: undefined,
         pictureAspectRatio: 0.769,
-        itemsPerRow: 3
+        itemsPerRow: 3,
+        rowsOnScreen: 4
     };
 
     BookGrid.prototype.createBookSurface = function(data) {

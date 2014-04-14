@@ -15,6 +15,7 @@ define(function(require, exports, module) {
 
     function App(context, options) {
         window.App = this;
+        this.updateDeviceInfo();
         // Handeling options
         this.context = context;
         this.options = Object.create(App.DEFAULT_OPTIONS);
@@ -116,6 +117,23 @@ define(function(require, exports, module) {
     };
     App.prototype.setOptions = function setOptions(options) {
         return this._optionsManager.setOptions(options);
+    };
+
+    App.prototype.Orientation = {PORTRAIT: 0, LANDSCAPE: 1};
+    App.prototype.SizeClassification = {XSMALL: 0, SMALL: 1, NORMAL: 2, LARGE: 3, XLARGE: 4};
+    App.prototype.classifyScreenSize = function(width, height) {
+        var sq = (width * height) / window.devicePixelRatio;
+        if (sq <= 320*360) return this.SizeClassification.SMALL;
+        if (sq <= 320*470) return this.SizeClassification.NORMAL;
+        if (sq <= 640*480) return this.SizeClassification.LARGE;
+        if (sq <= 720*640) return this.SizeClassification.XLARGE;
+        return this.SizeClassification.XLARGE;
+    };
+    App.prototype.updateDeviceInfo = function() {
+        this.deviceInfo = {
+            orientation: window.innerWidth < window.innerHeight ? this.Orientation.PORTRAIT : this.Orientation. LANDSCAPE,
+            sizeClassification: this.classifyScreenSize(window.innerWidth, window.innerHeight)
+        }
     };
 
     module.exports = App;

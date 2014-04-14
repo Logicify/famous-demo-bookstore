@@ -24,7 +24,6 @@ define(function(require, exports, module) {
         this.add(bookGrid);
     }
 
-    DummyFavoritesActivity.activityClassName='DummyFavoritesActivity';
     DummyFavoritesActivity.prototype = Object.create(Activity.prototype);
     DummyFavoritesActivity.prototype.constructor = DummyFavoritesActivity;
 

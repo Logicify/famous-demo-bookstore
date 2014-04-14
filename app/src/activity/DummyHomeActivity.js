@@ -21,14 +21,13 @@ define(function(require, exports, module) {
         var bookGrid = new BookGrid({
             size: this.options.size
         }, DUMMY_BOOK_DATA);
-        bookGrid.on('book-item-clicked', function(target, data) {
-            window.App.activityHolder.showCachedActivity('DummyBookDetailsActivity');
+        bookGrid.on('book-item-clicked', function(event) {
+            window.App.activityHolder.showCachedActivity('DummyBookDetailsActivity', undefined, event.data);
             window.App.bottomToolbar.setActiveItem(undefined);
         });
         this.add(bookGrid);
     }
 
-    DummyHomeActivity.activityClassName='DummyHomeActivity';
     DummyHomeActivity.prototype = Object.create(Activity.prototype);
     DummyHomeActivity.prototype.constructor = DummyHomeActivity;
 

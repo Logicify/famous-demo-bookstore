@@ -84,6 +84,10 @@ define(function(require, exports, module) {
         activity.prepareNavigationBar(window.App, window.App.header);
         window.App.header.setBackButtonEnabled(activity.onBackAction !== false);
         window.App.header.setMoreButtonEnabled(activity.onMoreAction !== false);
+        if (this.currentActivity) {
+            window.App.contentContainer.removeClass('activity-'+this.currentActivity.constructor.name);
+        }
+        window.App.contentContainer.addClass('activity-'+activity.constructor.name);
         this.currentActivity = activity;
         this.renderController.show(activity);
     };
@@ -117,7 +121,7 @@ define(function(require, exports, module) {
     };
 
     ActivityHolder.prototype.createCachedActivity = function(activity, options) {
-        this.cacheActivity(this.createActivity(activity, options), activity.activityClassName);
+        this.cacheActivity(this.createActivity(activity, options), activity.name);
 
     };
 

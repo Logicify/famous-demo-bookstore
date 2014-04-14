@@ -46,9 +46,9 @@ define(function(require, exports, module) {
             content: this._bookRenderer(_.extend({imageHeight: this._imageHeight}, data))
         });
         container.data = data;
-        container.on('click', function(target, data) {
-            this._eventOutput.emit('book-item-clicked', target, data);
-        }.bind(this, container, container.data));
+        container.on('click', function(target) {
+            this._eventOutput.emit('book-item-clicked', {target: target, data:data});
+        }.bind(this, container));
         return container;
     };
 

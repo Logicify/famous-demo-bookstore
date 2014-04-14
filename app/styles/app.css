@@ -40,6 +40,33 @@
 .book-item:hover {
   background: lightgray;
 }
+.activity-DummyBookDetailsActivity .book-title {
+  padding-top: 5px;
+  font-size: 1.4em;
+  font-weight: bold;
+  text-transform: capitalize;
+  text-align: center;
+  line-height: 1.4em;
+}
+.activity-DummyBookDetailsActivity .book-image {
+  text-align: center;
+  padding-top: 5px;
+}
+.activity-DummyBookDetailsActivity .book-price {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.activity-DummyBookDetailsActivity .intro-block {
+  padding: 5px 5px;
+  padding-top: 35px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.activity-DummyBookDetailsActivity .activity-label {
+  font-weight: bold;
+}
 .app-header {
   background-image: -moz-linear-gradient(top, #535357, #3c3c3f);
   background-image: -ms-linear-gradient(top, #535357, #3c3c3f);
